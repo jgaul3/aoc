@@ -11,12 +11,13 @@ def parse_game(line: str) -> list[list[int, int, int]]:
         counts = [0, 0, 0]
         for amounts in game.strip().split(", "):
             number, color = amounts.split(" ", 1)
-            if color == "red":
-                counts[0] = int(number)
-            elif color == "green":
-                counts[1] = int(number)
-            elif color == "blue":
-                counts[2] = int(number)
+            match color:
+                case "red":
+                    counts[0] = int(number)
+                case "green":
+                    counts[1] = int(number)
+                case "blue":
+                    counts[2] = int(number)
         rounds.append(counts)
     return rounds
 
